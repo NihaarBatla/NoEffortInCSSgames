@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game</title>
+    <style>
+        body {
+            text-align: center; /* Center text content like the heading */
+            font-family: Arial, sans-serif; /* Set a clean font for the page */
+        }
+
+        #sudoku-grid {
+            display: grid;
+            grid-template-columns: repeat(9, 50px);
+            grid-template-rows: repeat(9, 50px);
+            gap: 2px;
+            width: 450px;
+            margin: 20px auto; /* Center the grid horizontally */
+        }
+
+        .cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+            font-size: 20px;
+            cursor: pointer;
+            height: 50px;
+            width: 50px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center; /* Center the button horizontally */
+            margin-top: 20px; /* Add some space above the button */
+        }
+    </style>
+</head>
+<body>
+    <h1>Sudoku</h1> <!-- Heading for the game -->
+    <div id="sudoku-grid"></div>
+    <div class="button-container">
+        <button onclick="autoComplete()">Auto Complete</button>
+    </div>
+    <script src="sudoku.js"></script>
+</body>
+</html>

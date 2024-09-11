@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Ensure the correct file name -->
+</head>
+<body>
+
+    <!-- Selection Page -->
+    <div id="selection-page" class="page visible"> <!-- Add 'visible' class to make it visible when loaded -->
+        <h2>Select Game Mode</h2>
+        <button id="two-player" onclick="selectMode('2Player')">2 Player</button>
+        <button id="play-computer" onclick="selectMode('Computer')">Play with Computer</button>
+        <br><br>
+        <!-- Start Game Button -->
+        <button id="start-game-button" onclick="startGame()">Start Game</button> <!-- No inline style needed -->
+    </div>
+
+    <script>
+        let selectedMode = '';
+
+        function selectMode(mode) {
+            selectedMode = mode;
+            // Highlight selected mode button
+            document.getElementById('two-player').style.backgroundColor = '';
+            document.getElementById('play-computer').style.backgroundColor = '';
+
+            document.getElementById(mode === '2Player' ? 'two-player' : 'play-computer').style.backgroundColor = 'green';
+            
+            // Enable the "Start Game" button
+            document.getElementById('start-game-button').disabled = false;
+        }
+
+        function startGame() {
+            if (selectedMode) {
+                let gameBoardFile = selectedMode === 'Computer' ? 'Game Board Comp.html' : 'Game board 2P.html';
+                // Redirect to appropriate game board page
+                window.location.href = gameBoardFile; // Ensure the file name and path are correct
+            } else {
+                alert('Please select a game mode to start the game.');
+            }
+        }
+
+        window.addEventListener('load', function() {
+            // Check if the reload flag is set
+            if (sessionStorage.getItem('reloadFlag')) {
+                sessionStorage.removeItem('reloadFlag'); // Remove the flag
+                window.location.href = 'Landing Page.html'; // Redirect to the landing page
+            } else {
+                // Set the flag for future reloads
+                sessionStorage.setItem('reloadFlag', 'true');
+            }
+        });
+    </script>
+
+</body>
+</html>

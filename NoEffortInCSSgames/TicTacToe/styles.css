@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hide all pages by default */
+.page {
+    display: none; /* Hide pages by default */
+}
+
+/* Class to show the currently active page */
+.visible {
+    display: block;
+}
+
+/* Utility class to hide elements */
+.hidden {
+    display: none;
+}
+
+/* Game page container padding */
+#landing-page, #selection-page, #game-board {
+    padding-top: 50px;
+}
+
+/* Grid layout for the game board */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    margin: 20px auto; /* Center the grid horizontally */
+    max-width: 340px; /* Optional: Adjust as needed */
+}
+
+/* Individual cell styling */
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
